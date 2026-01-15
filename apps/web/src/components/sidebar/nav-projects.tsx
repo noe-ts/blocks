@@ -38,7 +38,7 @@ export function NavProjects({
               <Link to={item.url} className="flex items-center gap-2 h-full w-full">
                 {item.icon === "square" ? (
                   <div
-                    className="size-4 rounded"
+                    className="size-3 rounded"
                     style={{ backgroundColor: item.color }}
                   />
                 ) : (

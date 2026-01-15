@@ -18,7 +18,7 @@ export function NavSecondary({
   items: {
     title: string
     url: string
-    icon: LucideIcon
+    icon: LucideIcon | React.ComponentType<React.SVGProps<SVGSVGElement>>
   }[]
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
   return (
