@@ -26,7 +26,7 @@ function HomeComponent() {
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
-                    dbsq.dev
+                    dbsq.fr
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 /

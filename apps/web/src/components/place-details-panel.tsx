@@ -10,7 +10,7 @@ interface PlaceDetailsPanelProps {
 
 export function PlaceDetailsPanel({ place, onClose }: PlaceDetailsPanelProps) {
   return (
-    <div className="border-l max-w-[380px] w-full flex flex-col h-full">
+    <div className="border-l max-w-[420px] w-full flex flex-col h-full">
       <div className="flex flex-row justify-between items-center w-full border-b p-3 shrink-0">
         <h2 className="text-sm font-medium">Details</h2>
         <Button
@@ -38,7 +38,7 @@ export function PlaceDetailsPanel({ place, onClose }: PlaceDetailsPanelProps) {
           {/* Image Gallery */}
           {place.images && place.images.length > 0 && (
             <div className="flex gap-2">
-              {place.images.slice(0, 3).map((image, index) => (
+              {place.images.slice(0, 4).map((image, index) => (
                 <img
                   key={index}
                   src={image}

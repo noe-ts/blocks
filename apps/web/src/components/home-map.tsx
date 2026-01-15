@@ -1,22 +1,32 @@
 import {
   Map,
+  MapControls,
   MapMarker,
   MarkerContent,
   MarkerLabel,
   MarkerPopup,
 } from "@/components/ui/map";
 import { Badge } from "./ui/badge";
-import { MapPin, Clock, Globe, Phone } from "lucide-react";
+import { MapPin, Clock, Globe, Phone, Menu, Mic, Send, CpuIcon } from "lucide-react";
 import { places, type Place } from "./places";
+import { Input } from "./ui/input";
+import { useState } from "react";
 
 interface HomeMapProps {
   onMarkerClick?: (place: Place) => void;
 }
 
 export function HomeMap({ onMarkerClick }: HomeMapProps) {
+  const [searchValue, setSearchValue] = useState("");
+
   return (
-    <div className="h-[calc(100%-100px)] mt-4 w-full rounded-lg overflow-hidden">
+    <div className="h-[calc(100%-100px)] mt-4 w-full rounded-lg overflow-hidden relative">
       <Map center={[2.3364, 48.8606]} zoom={13}>
+      <MapControls
+          position="bottom-right"
+          showZoom
+      />
+
         {places.map((place) => (
           <MapMarker
             key={place.id}
@@ -91,6 +101,38 @@ export function HomeMap({ onMarkerClick }: HomeMapProps) {
           </MapMarker>
         ))}
       </Map>
+      
+      {/* Search bar overlay */}
+      <div className="absolute bottom-4 left-0 right-0 z-10 flex justify-center">
+        <div className="flex items-center gap-2 bg-background/95 backdrop-blur-sm border border-border rounded-lg px-3 py-2 shadow-lg max-w-[500px] w-full mx-auto">
+          <div className="bg-teal-color/10 rounded-md border border-teal-color/30 p-1.5">
+            <CpuIcon className="size-4 text-teal-color" />
+          </div>
+          <Input
+            type="text"
+            placeholder="Ask follow-up"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            className="border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 shadow-none px-0 h-auto"
+          />
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              className="p-1.5 hover:bg-muted rounded-md transition-colors"
+              aria-label="Voice input"
+            >
+              <Mic className="size-4 text-muted-foreground" />
+            </button>
+            <button
+              type="button"
+              className="p-1.5 rounded-md bg-primary transition-colors"
+              aria-label="Send"
+            >
+              <Send className="size-4 text-white" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
