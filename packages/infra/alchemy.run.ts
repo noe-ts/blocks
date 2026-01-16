@@ -16,6 +16,16 @@ export const web = await TanStackStart("web", {
   },
 });
 
+const salesforce = await TanStackStart("salesforce", {
+  cwd: "../../apps/salesforce",
+  domains: ["salesforce.dbsq.fr"],
+  bindings: {
+    VITE_SERVER_URL: alchemy.env.VITE_SERVER_URL!,
+    CORS_ORIGIN: alchemy.env.CORS_ORIGIN!,
+  },
+});
+
 console.log(`Web    -> ${web.url}`);
+console.log(`Salesforce -> ${salesforce.url}`);
 
 await app.finalize();

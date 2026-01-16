@@ -20,6 +20,7 @@
     "check-types": "turbo check-types",
     "dev:native": "turbo -F native dev",
     "dev:web": "turbo -F web dev",
+    "dev:salesforce": "turbo -F salesforce dev",
     "check": "biome check --write ."
   },
   "dependencies": {
