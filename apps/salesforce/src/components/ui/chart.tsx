@@ -250,6 +250,12 @@ function ChartTooltipContent({
 
 const ChartLegend = RechartsPrimitive.Legend
 
+const ChartFunnelChart = RechartsPrimitive.FunnelChart
+
+const ChartFunnel = RechartsPrimitive.Funnel
+
+const ChartLabelList = RechartsPrimitive.LabelList
+
 function ChartLegendContent({
   className,
   hideIcon = false,
@@ -350,5 +356,8 @@ export {
   ChartTooltipContent,
   ChartLegend,
   ChartLegendContent,
+  ChartFunnelChart,
+  ChartFunnel,
+  ChartLabelList,
   ChartStyle,
 }

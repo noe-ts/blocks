@@ -9,10 +9,52 @@ import { IconArchiveFilled, IconBellFilled, IconInfoSquareRoundedFilled } from "
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UserProfile } from "@/components/user-profile";
+import {
+  ChartContainer,
+  ChartFunnelChart,
+  ChartFunnel,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+  ChartLabelList,
+} from "@/components/ui/chart";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { funnelData, chartConfig } from "@/lib/chart-data";
 
 export const Route = createFileRoute("/")({
   component: HomeComponent,
 });
+
+function SalesFunnelChart() {
+  return (
+    <ChartContainer config={chartConfig} className="h-[400px] w-full">
+      <ChartFunnelChart>
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <ChartLegend content={<ChartLegendContent />} />
+        <ChartFunnel
+          data={funnelData}
+          dataKey="value"
+          nameKey="name"
+          isAnimationActive
+        >
+          <ChartLabelList
+            position="right"
+            fill="#000"
+            stroke="none"
+            dataKey="name"
+          />
+        </ChartFunnel>
+      </ChartFunnelChart>
+    </ChartContainer>
+  );
+}
 
 function HomeComponent() {
   return (
@@ -58,8 +100,20 @@ function HomeComponent() {
           </div>
 
         </header>
-        <div className="flex flex-1 flex-col gap-4 pt-0">
-
+        <div className="flex flex-1 flex-col gap-4 p-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="lg:col-span-2">
+              <CardHeader>
+                <CardTitle>Sales Funnel</CardTitle>
+                <CardDescription>
+                  Pipeline stages from leads to closed deals
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <SalesFunnelChart />
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>

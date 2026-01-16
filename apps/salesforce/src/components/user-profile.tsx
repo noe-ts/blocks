@@ -1,4 +1,4 @@
-import { User, LogOut, Mail } from "lucide-react";
+import { User, LogOut } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface UserProfileProps {
   email?: string;
@@ -23,10 +23,18 @@ export function UserProfile({
 }: UserProfileProps) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <Button size="icon-sm" variant="outline" className="bg-primary/20 text-primary border-white hover:bg-primary/20 hover:text-primary">
-          ND
-        </Button>
+      <DropdownMenuTrigger
+        className={cn(
+          "size-8 rounded-[min(var(--radius-md),10px)]",
+          "bg-primary/20 text-primary border border-white",
+          "hover:bg-primary/20 hover:text-primary",
+          "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+          "inline-flex items-center justify-center text-sm font-medium",
+          "transition-all disabled:pointer-events-none disabled:opacity-50",
+          "outline-none select-none"
+        )}
+      >
+        ND
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuGroup>
