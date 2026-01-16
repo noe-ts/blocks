@@ -256,6 +256,8 @@ const ChartFunnel = RechartsPrimitive.Funnel
 
 const ChartLabelList = RechartsPrimitive.LabelList
 
+const ChartCell = RechartsPrimitive.Cell
+
 function ChartLegendContent({
   className,
   hideIcon = false,
@@ -359,5 +361,6 @@ export {
   ChartFunnelChart,
   ChartFunnel,
   ChartLabelList,
+  ChartCell,
   ChartStyle,
 }
