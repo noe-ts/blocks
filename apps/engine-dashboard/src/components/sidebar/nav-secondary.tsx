@@ -1,42 +1,43 @@
-import * as React from "react"
-import { type LucideIcon } from "lucide-react"
-
+import { Link } from "@tanstack/react-router";
+import type { LucideIcon } from "lucide-react";
+import type * as React from "react";
 import {
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar"
-
-import { Link } from "@tanstack/react-router"
+	SidebarGroup,
+	SidebarGroupContent,
+	SidebarMenu,
+	SidebarMenuButton,
+	SidebarMenuItem,
+} from "@/components/ui/sidebar";
 
 export function NavSecondary({
-  items,
-  ...props
+	items,
+	...props
 }: {
-  items: {
-    title: string
-    url: string
-    icon: LucideIcon | React.ComponentType<React.SVGProps<SVGSVGElement>>
-  }[]
+	items: {
+		title: string;
+		url: string;
+		icon: LucideIcon | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+	}[];
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
-  return (
-    <SidebarGroup {...props}>
-      <SidebarGroupContent>
-        <SidebarMenu>
-          {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton size="sm">
-                <Link to={item.url} className="flex items-center gap-2 h-full w-full">
-                  <item.icon />
-                  <span>{item.title}</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
-        </SidebarMenu>
-      </SidebarGroupContent>
-    </SidebarGroup>
-  )
+	return (
+		<SidebarGroup {...props}>
+			<SidebarGroupContent>
+				<SidebarMenu>
+					{items.map((item) => (
+						<SidebarMenuItem key={item.title}>
+							<SidebarMenuButton size="sm">
+								<Link
+									to={item.url}
+									className="flex h-full w-full items-center gap-2"
+								>
+									<item.icon />
+									<span>{item.title}</span>
+								</Link>
+							</SidebarMenuButton>
+						</SidebarMenuItem>
+					))}
+				</SidebarMenu>
+			</SidebarGroupContent>
+		</SidebarGroup>
+	);
 }
