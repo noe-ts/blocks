@@ -25,7 +25,17 @@ const salesforce = await TanStackStart("salesforce", {
   },
 });
 
+const engineDashboard = await TanStackStart("engine-dashboard", {
+  cwd: "../../apps/engine-dashboard",
+  domains: ["engine-dashboard.dbsq.fr"],
+  bindings: {
+    VITE_SERVER_URL: alchemy.env.VITE_SERVER_URL!,
+    CORS_ORIGIN: alchemy.env.CORS_ORIGIN!,
+  },
+});
+
 console.log(`Web    -> ${web.url}`);
 console.log(`Salesforce -> ${salesforce.url}`);
+console.log(`Engine Dashboard -> ${engineDashboard.url}`);
 
 await app.finalize();

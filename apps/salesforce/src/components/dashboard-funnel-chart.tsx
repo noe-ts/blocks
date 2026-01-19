@@ -3,7 +3,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -48,10 +47,7 @@ export function DashboardFunnelChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Sales Funnel</CardTitle>
-        <CardDescription>
-          Pipeline stages from leads to closed deals
-        </CardDescription>
+        <CardTitle>Potential sales by stage</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="h-[400px] w-full">
