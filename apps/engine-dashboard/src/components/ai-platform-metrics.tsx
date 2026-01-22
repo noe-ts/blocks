@@ -65,7 +65,7 @@ export function AIPlatformMetrics() {
 				label="ChatGPT"
 				value="213"
 				period="LAST 30 DAYS"
-				change={12.5}
+				change={11.5}
 				changeType="decrease"
 			/>
 			<MetricCard
@@ -73,7 +73,7 @@ export function AIPlatformMetrics() {
 				label="Gemini"
 				value="92"
 				period="LAST 30 DAYS"
-				change={12.5}
+				change={13.7}
 				changeType="decrease"
 			/>
 			<MetricCard
@@ -81,15 +81,15 @@ export function AIPlatformMetrics() {
 				label="Copilot"
 				value="12"
 				period="LAST 30 DAYS"
-				change={25}
+				change={25.2}
 				changeType="increase"
 			/>
 			<MetricCard
 				icon={ClaudeIcon}
 				label="Claude"
-				value="12"
+				value="34"
 				period="LAST 30 DAYS"
-				change={25}
+				change={11.4}
 				changeType="increase"
 			/>
 		</div>

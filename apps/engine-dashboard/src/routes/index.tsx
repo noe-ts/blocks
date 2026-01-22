@@ -26,7 +26,7 @@ function HomeComponent() {
               <h1 className="text-xl font-medium">Overview</h1>
               <div className="flex items-center gap-1 text-sm text-muted-foreground">
                 <Globe className="size-3.5" />
-                <span className="font-mono text-xs">acedesign.studio</span>
+                <span className="font-mono text-xs">dbsq.fr</span>
               </div>
             </div>
           </div>

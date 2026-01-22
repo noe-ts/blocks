@@ -6,6 +6,7 @@ import {
 	ChartTooltipContent,
 	type ChartConfig,
 } from "@/components/ui/chart";
+import { uniqueVisitorsChartData } from "./data";
 
 const chartConfig = {
 	visitors: {
@@ -13,11 +14,6 @@ const chartConfig = {
 		color: "var(--primary)",
 	},
 } satisfies ChartConfig;
-
-const uniqueVisitorsData = Array.from({ length: 40 }, (_, i) => ({
-	day: i + 1,
-	visitors: Math.floor(Math.random() * 500) + 7000,
-}));
 
 export function UniqueVisitorsChart() {
 	return (
@@ -29,7 +25,7 @@ export function UniqueVisitorsChart() {
 			period="last 30 days"
 		>
 			<ChartContainer config={chartConfig}>
-				<BarChart data={uniqueVisitorsData}>
+				<BarChart data={uniqueVisitorsChartData}>
 					<XAxis
 						dataKey="day"
 						tickLine={false}

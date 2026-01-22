@@ -6,6 +6,7 @@ import {
 	ChartTooltipContent,
 	type ChartConfig,
 } from "@/components/ui/chart";
+import { aiVisibilityScoreChartData } from "./data";
 
 const chartConfig = {
 	score: {
@@ -13,12 +14,6 @@ const chartConfig = {
 		color: "var(--primary)",
 	},
 } satisfies ChartConfig;
-
-// Mock data for AI visibility score over time
-const visibilityData = Array.from({ length: 50 }, (_, i) => ({
-	day: i + 1,
-	score: 30 + Math.sin(i / 5) * 5 + Math.random() * 3,
-}));
 
 export function AIVisibilityScoreChart() {
 	return (
@@ -30,7 +25,7 @@ export function AIVisibilityScoreChart() {
 			period="last 30 days"
 		>
 			<ChartContainer config={chartConfig}>
-				<AreaChart data={visibilityData}>
+				<AreaChart data={aiVisibilityScoreChartData}>
 					<XAxis
 						dataKey="day"
 						tickLine={false}
@@ -45,7 +40,7 @@ export function AIVisibilityScoreChart() {
 						</linearGradient>
 					</defs>
 					<Area
-						type="linear"
+						type="monotone"
 						dataKey="score"
 						stroke="var(--primary)"
 						strokeWidth={1.5}

@@ -6,6 +6,7 @@ import {
 	ChartTooltipContent,
 	type ChartConfig,
 } from "@/components/ui/chart";
+import { aiReferralVisitorsChartData } from "./data";
 
 const chartConfig = {
 	visitors: {
@@ -13,11 +14,6 @@ const chartConfig = {
 		color: "var(--primary)",
 	},
 } satisfies ChartConfig;
-
-const referralData = Array.from({ length: 12 }, (_, i) => ({
-	day: i + 1,
-	visitors: Math.floor(Math.random() * 800) + 12000,
-}));
 
 export function AIReferralVisitorsChart() {
 	return (
@@ -29,7 +25,7 @@ export function AIReferralVisitorsChart() {
 			period="last 30 days"
 		>
 			<ChartContainer config={chartConfig}>
-				<BarChart data={referralData}>
+				<BarChart data={aiReferralVisitorsChartData}>
 					<XAxis
 						dataKey="day"
 						tickLine={false}

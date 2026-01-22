@@ -145,8 +145,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               )}
             >
               <div className="flex items-center gap-2">
-                <div className="size-2 rounded-sm bg-blue-500" />
-                <span className="text-sm">Ace Studio</span>
+                <img src="/logo.png" alt="Acme studio" className="size-5 rounded-sm object-contain" />
+                <span className="text-sm">Acme Studio</span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
