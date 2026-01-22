@@ -31,11 +31,11 @@ export interface SalesByRegionDataItem {
 
 // 1. Potential sales by stage (Funnel Chart)
 export const funnelData: FunnelDataItem[] = [
-	{ name: "Prospecting", value: 675000, fill: "hsl(var(--chart-1))" },
-	{ name: "Qualification", value: 330000, fill: "hsl(var(--chart-2))" },
-	{ name: "Analysis", value: 302000, fill: "hsl(var(--chart-3))" },
-	{ name: "Value proposition", value: 246000, fill: "hsl(var(--chart-4))" },
-	{ name: "Price quote", value: 194000, fill: "hsl(var(--chart-5))" },
+	{ name: "Prospecting", value: 675000, fill: "var(--chart-1)" },
+	{ name: "Qualification", value: 330000, fill: "var(--chart-2)" },
+	{ name: "Analysis", value: 302000, fill: "var(--chart-3)" },
+	{ name: "Value proposition", value: 246000, fill: "var(--chart-4)" },
+	{ name: "Price quote", value: 194000, fill: "var(--chart-5)" },
 ];
 
 // 2. Sales by month (Bar Chart with Dots)
@@ -64,11 +64,11 @@ export const totalSales = {
 
 // 5. Expected revenue by account (Donut Chart)
 export const revenueByAccountData: RevenueByAccountDataItem[] = [
-	{ name: "Hotels", value: 827000, fill: "hsl(var(--chart-1))" },
-	{ name: "Gene point", value: 511000, fill: "hsl(var(--chart-2))" },
-	{ name: "Oil and gas", value: 428000, fill: "hsl(var(--chart-3))" },
-	{ name: "Logistics", value: 357000, fill: "hsl(var(--chart-4))" },
-	{ name: "Others", value: 1203000, fill: "hsl(var(--chart-5))" },
+	{ name: "Hotels", value: 827000, fill: "var(--chart-1)" },
+	{ name: "Gene point", value: 511000, fill: "var(--chart-2)" },
+	{ name: "Oil and gas", value: 428000, fill: "var(--chart-3)" },
+	{ name: "Logistics", value: 357000, fill: "var(--chart-4)" },
+	{ name: "Others", value: 1203000, fill: "var(--chart-5)" },
 ];
 
 export const expectedRevenueTotal = 3209000;
@@ -85,10 +85,10 @@ export const leadSourceData: LeadSourceDataItem[] = [
 
 // 7. Sales by region (Horizontal Bar Chart)
 export const salesByRegionData: SalesByRegionDataItem[] = [
-	{ name: "East Coast", value: 478000, fill: "hsl(var(--chart-1))" },
-	{ name: "Midwest", value: 386000, fill: "hsl(var(--chart-3))" },
-	{ name: "Southwest", value: 596000, fill: "hsl(var(--chart-5))" },
-	{ name: "West Coast", value: 174000, fill: "hsl(var(--chart-4))" },
+	{ name: "East Coast", value: 478000, fill: "var(--chart-1)" },
+	{ name: "Midwest", value: 386000, fill: "var(--chart-3)" },
+	{ name: "Southwest", value: 596000, fill: "var(--chart-5)" },
+	{ name: "West Coast", value: 174000, fill: "var(--chart-4)" },
 ];
 
 // Chart configuration
@@ -98,30 +98,30 @@ export const chartConfig = {
 	},
 	sales: {
 		label: "Sales",
-		color: "hsl(var(--chart-1))",
+		color: "var(--chart-1)",
 	},
 	potential: {
 		label: "Potential",
-		color: "hsl(var(--chart-2))",
+		color: "var(--chart-2)",
 	},
 	prospecting: {
 		label: "Prospecting",
-		color: "hsl(var(--chart-1))",
+		color: "var(--chart-1)",
 	},
 	qualification: {
 		label: "Qualification",
-		color: "hsl(var(--chart-2))",
+		color: "var(--chart-2)",
 	},
 	analysis: {
 		label: "Analysis",
-		color: "hsl(var(--chart-3))",
+		color: "var(--chart-3)",
 	},
 	valueProposition: {
 		label: "Value proposition",
-		color: "hsl(var(--chart-4))",
+		color: "var(--chart-4)",
 	},
 	priceQuote: {
 		label: "Price quote",
-		color: "hsl(var(--chart-5))",
+		color: "var(--chart-5)",
 	},
 };

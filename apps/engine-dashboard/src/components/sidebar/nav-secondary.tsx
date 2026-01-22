@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import type { LucideIcon } from "lucide-react";
 import type * as React from "react";
 import {
 	SidebarGroup,
@@ -16,7 +15,7 @@ export function NavSecondary({
 	items: {
 		title: string;
 		url: string;
-		icon: LucideIcon | React.ComponentType<React.SVGProps<SVGSVGElement>>;
+		icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 	}[];
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
 	return (
@@ -28,10 +27,10 @@ export function NavSecondary({
 							<SidebarMenuButton size="sm">
 								<Link
 									to={item.url}
-									className="flex h-full w-full items-center gap-2"
+									className="flex h-full w-full items-center gap-2 text-muted-foreground"
 								>
-									<item.icon />
-									<span>{item.title}</span>
+									<item.icon className="text-muted-foreground" />
+									<span className="text-muted-foreground font-medium text-sm">{item.title}</span>
 								</Link>
 							</SidebarMenuButton>
 						</SidebarMenuItem>

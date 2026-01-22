@@ -39,7 +39,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
 
 function RootDocument() {
 	return (
-		<html lang="en" className="light">
+		<html lang="en" className="light antialiased">
 			<head>
 				<HeadContent />
 			</head>

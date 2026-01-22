@@ -1,61 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { LinkIcon, Search, Share, Star } from "lucide-react";
-import Home from "@/components/home";
+import { Globe } from "lucide-react";
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
 import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-} from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import {
-	SidebarInset,
-	SidebarProvider,
-	SidebarTrigger,
+  SidebarInset,
+  SidebarProvider
 } from "@/components/ui/sidebar";
+import { AIPlatformMetrics } from "@/components/ai-platform-metrics";
+import { UniqueVisitorsChart } from "@/components/unique-visitors-chart";
+import { CitationRankList } from "@/components/citation-rank-list";
+import { AIVisibilityScoreChart } from "@/components/ai-visibility-score-chart";
+import { AIReferralVisitorsChart } from "@/components/ai-referral-visitors-chart";
 
 export const Route = createFileRoute("/")({
-	component: HomeComponent,
+  component: HomeComponent,
 });
 
 function HomeComponent() {
-	return (
-		<SidebarProvider>
-			<AppSidebar />
-			<SidebarInset>
-				<header className="flex h-12 shrink-0 items-center justify-between gap-2 border-b">
-					<div className="flex items-center gap-2 px-4">
-						<SidebarTrigger className="-ml-1" />
-						<Breadcrumb>
-							<BreadcrumbList>
-								<BreadcrumbItem className="hidden md:block">
-									<BreadcrumbLink href="#">dbsq.fr</BreadcrumbLink>
-								</BreadcrumbItem>
-								/
-								<BreadcrumbItem>
-									<BreadcrumbItem>2 minutes ago</BreadcrumbItem>
-								</BreadcrumbItem>
-							</BreadcrumbList>
-						</Breadcrumb>
-					</div>
-					<div className="flex items-center gap-2 px-4">
-						<Button variant={"outline"} size="icon-sm">
-							<Star className="size-3.5 fill-yellow-400 text-yellow-400" />
-						</Button>
-						<Button variant={"outline"} size="icon-sm">
-							<LinkIcon className="size-3.5" />
-						</Button>
-						<Button size="sm">
-							<Share className="size-3.5" />
-							Share
-						</Button>
-					</div>
-				</header>
-				<div className="flex flex-1 flex-col gap-4 pt-0">
-					<Home />
-				</div>
-			</SidebarInset>
-		</SidebarProvider>
-	);
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <header className="flex h-16 shrink-0 items-center justify-between gap-2 px-6 bg-sidebar">
+          <div className="flex items-center gap-2">
+            <div className="flex flex-col gap-1">
+              <h1 className="text-xl font-medium">Overview</h1>
+              <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                <Globe className="size-3.5" />
+                <span className="font-mono text-xs">acedesign.studio</span>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div className="flex flex-1 flex-col gap-6 p-6 overflow-auto bg-sidebar">
+          <AIPlatformMetrics />
+
+          <div className="grid grid-cols-2 gap-6">
+            <UniqueVisitorsChart />
+            <CitationRankList />
+          </div>
+
+          <div className="grid grid-cols-2 gap-6">
+            <AIVisibilityScoreChart />
+            <AIReferralVisitorsChart />
+          </div>
+        </div>
+      </SidebarInset>
+    </SidebarProvider>
+  );
 }
