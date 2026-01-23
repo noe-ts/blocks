@@ -12,15 +12,15 @@ const iconMap = {
 };
 
 const colorMap = {
-  purple: "bg-primary",
-  blue: "bg-blue-500",
+  purple: "bg-[var(--chart-1)]",
+  blue: "bg-[var(--chart-2)]",
   red: "bg-red-500",
   yellow: "bg-yellow-500",
 };
 
 const iconColorMap = {
-  purple: "text-primary",
-  blue: "text-blue-500",
+  purple: "text-[var(--chart-1)]",
+  blue: "text-[var(--chart-2)]",
   red: "text-red-500",
   yellow: "text-yellow-500",
 };
@@ -86,7 +86,7 @@ export function OverviewCards() {
 
         return (
           <Card key={card.title} className="p-0 gap-0">
-            <CardContent className="p-6">
+            <CardContent className="p-4">
               <div className="flex items-center justify-between mb-4 gap-3">
                 <div className="size-12 rounded-full flex items-center justify-center border border-border">
                   <Icon className={cn("size-5", iconColor)} />

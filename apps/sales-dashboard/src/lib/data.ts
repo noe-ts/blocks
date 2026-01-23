@@ -111,11 +111,11 @@ export const salesPipelineTotal = "$250.7K";
 
 // Income by Category Radar Chart Data
 export const incomeCategoryData: IncomeCategoryDataItem[] = [
-	{ category: "Royalties", value1: 80, value2: 70 },
-	{ category: "Investments", value1: 60, value2: 75 },
-	{ category: "Licensing", value1: 70, value2: 65 },
-	{ category: "Consulting", value1: 85, value2: 80 },
-	{ category: "Dividends", value1: 75, value2: 85 },
+	{ category: "C1", value1: 80, value2: 20 },
+	{ category: "C2", value1: 80, value2: 10 },
+	{ category: "C3", value1: 40, value2: 90 },
+	{ category: "C4", value1: 20, value2: 80 },
+	{ category: "C5", value1: 20, value2: 70 },
 ];
 
 // Accounts Receivable Donut Chart Data

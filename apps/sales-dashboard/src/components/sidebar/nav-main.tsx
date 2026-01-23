@@ -1,11 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import {
 	SidebarGroup,
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 
 export function NavMain({
 	items,
@@ -22,15 +24,35 @@ export function NavMain({
 			<SidebarMenu>
 				{items.map((item) => (
 					<SidebarMenuItem key={item.title}>
-						<SidebarMenuButton tooltip={item.title} isActive={item.isActive}>
-							<Link
-								to={item.url}
-								className="flex h-full w-full items-center gap-2"
+						<div className="relative">
+							{/* Purple vertical bar for active state - extends beyond top/bottom */}
+							{item.isActive && (
+								<div className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--chart-1)] -top-1 -bottom-1 z-10" />
+							)}
+							<SidebarMenuButton
+								tooltip={item.title}
+								isActive={item.isActive}
+								className={cn(
+									"relative",
+									item.isActive &&
+										"bg-[var(--chart-1)]/10 rounded-r-md text-[var(--chart-1)] [&_svg]:text-[var(--chart-1)] [&_span]:text-[var(--chart-1)] [&_a_svg]:text-[var(--chart-1)]",
+									!item.isActive && "text-muted-foreground",
+								)}
 							>
-								<item.icon />
-								<span>{item.title}</span>
-							</Link>
-						</SidebarMenuButton>
+								<Link
+									to={item.url}
+									className="flex h-full w-full items-center gap-2 justify-between"
+								>
+									<div className="flex items-center gap-2">
+										<item.icon className="size-4" />
+										<span className="font-medium">{item.title}</span>
+									</div>
+									{item.isActive && (
+										<ChevronRight className="size-4 text-[var(--chart-1)]" />
+									)}
+								</Link>
+							</SidebarMenuButton>
+						</div>
 					</SidebarMenuItem>
 				))}
 			</SidebarMenu>

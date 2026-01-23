@@ -4,7 +4,7 @@ import { topProducts } from "@/lib/data";
 
 export function TopProducts() {
 	return (
-		<Card className="shadow-none">
+		<Card className="shadow-none col-span-2">
 			<CardHeader>
 				<div className="flex items-center gap-2">
 					<Star className="size-4 text-muted-foreground" />
