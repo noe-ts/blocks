@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import {
 	FunnelChart as RechartsFunnelChart,
@@ -264,19 +262,26 @@ export function FunnelChart({
 
 	// Custom shape with gap and rounded corners
 	const renderTrapezoid = React.useCallback(
-		(props: TrapezoidShapeProps & { index?: number }) => {
-			const { y = 0, height = 0, ...rest } = props;
+		(props: TrapezoidShapeProps) => {
+			const { y = 0, height = 0, upperWidth = 0, lowerWidth = 0, ...rest } = props;
 
 			// Apply gap by adjusting y and height only
 			const halfGap = gap / 2;
 			const adjustedY = y + halfGap;
 			const adjustedHeight = Math.max(0, height - gap);
 
+			// Ensure minimum bottom width (hopper shape, not triangle)
+			// If lowerWidth is 0 or very small, it's the last segment
+			const minLowerWidth = upperWidth * 0.6;
+			const adjustedLowerWidth = Math.max(lowerWidth, minLowerWidth);
+
 			return (
 				<RoundedTrapezoid
 					{...rest}
 					y={adjustedY}
 					height={adjustedHeight}
+					upperWidth={upperWidth}
+					lowerWidth={adjustedLowerWidth}
 					cornerRadius={cornerRadius}
 				/>
 			);

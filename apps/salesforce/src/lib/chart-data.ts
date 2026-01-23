@@ -30,12 +30,13 @@ export interface SalesByRegionDataItem {
 }
 
 // 1. Potential sales by stage (Funnel Chart)
+// Same proportion (e.g., 80%) between each stage
 export const funnelData: FunnelDataItem[] = [
-	{ name: "Prospecting", value: 675000, fill: "var(--chart-1)" },
-	{ name: "Qualification", value: 330000, fill: "var(--chart-2)" },
-	{ name: "Analysis", value: 302000, fill: "var(--chart-3)" },
-	{ name: "Value proposition", value: 246000, fill: "var(--chart-4)" },
-	{ name: "Price quote", value: 194000, fill: "var(--chart-5)" },
+	{ name: "Prospecting", value: 390000, fill: "var(--chart-1)" },
+	{ name: "Qualification", value: 316000, fill: "var(--chart-2)" },
+	{ name: "Analysis", value: 253000, fill: "var(--chart-3)" },
+	{ name: "Value proposition", value: 202000, fill: "var(--chart-4)" },
+	{ name: "Price quote", value: 162000, fill: "var(--chart-5)" },
 ];
 
 // 2. Sales by month (Bar Chart with Dots)
