@@ -1,40 +1,36 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-	ChartCell,
-	type ChartConfig,
-	ChartContainer,
-	ChartFunnel,
-	ChartFunnelChart,
-	ChartLabelList,
-	ChartLegend,
-	ChartLegendContent,
-	ChartTooltip,
-	ChartTooltipContent,
-} from "@/components/ui/chart";
+	FunnelChart,
+	type FunnelChartConfig,
+} from "@/components/ui/funnel-chart";
 import { funnelData } from "@/lib/chart-data";
 
 const chartConfig = {
 	prospecting: {
 		label: "Prospecting",
-		color: "var(--chart-1)",
 	},
 	qualification: {
 		label: "Qualification",
-		color: "var(--chart-2)",
 	},
 	analysis: {
 		label: "Analysis",
-		color: "var(--chart-3)",
 	},
-	valueProposition: {
+	valueproposition: {
 		label: "Value proposition",
-		color: "var(--chart-4)",
 	},
-	priceQuote: {
+	pricequote: {
 		label: "Price quote",
-		color: "var(--chart-5)",
 	},
-} satisfies ChartConfig;
+} satisfies FunnelChartConfig;
+
+// Colors matching the design
+const colors = [
+	"#22d3ee", // Cyan - Prospecting
+	"#93c5fd", // Light blue - Qualification
+	"#a855f7", // Purple - Analysis
+	"#d8b4fe", // Light purple - Value proposition
+	"#5eead4", // Teal - Price quote
+];
 
 export function DashboardFunnelChart() {
 	return (
@@ -43,40 +39,19 @@ export function DashboardFunnelChart() {
 				<CardTitle>Potential sales by stage</CardTitle>
 			</CardHeader>
 			<CardContent>
-				<ChartContainer config={chartConfig} className="h-[400px] w-full">
-					<ChartFunnelChart>
-						<ChartTooltip content={<ChartTooltipContent />} />
-						<ChartLegend content={<ChartLegendContent />} />
-						<ChartFunnel
-							data={funnelData}
-							dataKey="value"
-							nameKey="name"
-							isAnimationActive
-						>
-							{funnelData.map((_, index) => {
-								const keys = [
-									"prospecting",
-									"qualification",
-									"analysis",
-									"valueProposition",
-									"priceQuote",
-								] as const;
-								return (
-									<ChartCell
-										key={`cell-${index}`}
-										fill={`var(--color-${keys[index]})`}
-									/>
-								);
-							})}
-							<ChartLabelList
-								position="right"
-								fill="var(--foreground)"
-								stroke="none"
-								dataKey="name"
-							/>
-						</ChartFunnel>
-					</ChartFunnelChart>
-				</ChartContainer>
+				<FunnelChart
+					data={funnelData}
+					config={chartConfig}
+					colors={colors}
+					gap={8}
+					cornerRadius={12}
+					showLegend
+					showTooltip
+					showLabels
+					valueFormatter={(value) => `$${(value / 1000).toFixed(0)} K`}
+					animated
+					className="h-[380px]"
+				/>
 			</CardContent>
 		</Card>
 	);
