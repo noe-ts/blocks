@@ -11,10 +11,6 @@ import {
 import type { Props as LegendProps } from "recharts/types/component/Legend";
 import { cn } from "@/lib/utils";
 
-// ============================================================================
-// Types
-// ============================================================================
-
 export interface FunnelDataItem {
 	name: string;
 	value: number;
@@ -49,10 +45,6 @@ export interface FunnelChartProps {
 	onSegmentClick?: (data: FunnelDataItem, index: number) => void;
 }
 
-// ============================================================================
-// Default Colors
-// ============================================================================
-
 const DEFAULT_COLORS = [
 	"var(--chart-1)",
 	"var(--chart-2)",
@@ -61,10 +53,6 @@ const DEFAULT_COLORS = [
 	"var(--chart-5)",
 ];
 
-// ============================================================================
-// Context for config
-// ============================================================================
-
 const FunnelChartContext = React.createContext<{ config: FunnelChartConfig } | null>(null);
 
 function useFunnelChartConfig() {
@@ -72,10 +60,6 @@ function useFunnelChartConfig() {
 	if (!ctx) throw new Error("useFunnelChartConfig must be used within FunnelChart");
 	return ctx.config;
 }
-
-// ============================================================================
-// Rounded Trapezoid Shape
-// ============================================================================
 
 interface TrapezoidShapeProps {
 	x?: number;
@@ -156,10 +140,6 @@ function RoundedTrapezoid({
 	return <path d={path} fill={fill} />;
 }
 
-// ============================================================================
-// Custom Tooltip
-// ============================================================================
-
 interface CustomTooltipProps {
 	active?: boolean;
 	payload?: Array<{
@@ -197,10 +177,6 @@ function CustomTooltip({ active, payload, valueFormatter }: CustomTooltipProps) 
 	);
 }
 
-// ============================================================================
-// Custom Legend
-// ============================================================================
-
 interface CustomLegendProps {
 	payload?: LegendProps["payload"];
 }
@@ -231,10 +207,6 @@ function CustomLegend({ payload }: CustomLegendProps) {
 		</div>
 	);
 }
-
-// ============================================================================
-// Main FunnelChart Component
-// ============================================================================
 
 export function FunnelChart({
 	data,
@@ -363,9 +335,5 @@ export function FunnelChart({
 		</FunnelChartContext.Provider>
 	);
 }
-
-// ============================================================================
-// Exports
-// ============================================================================
 
 export { CustomLegend as FunnelLegend, CustomTooltip as FunnelTooltip };
