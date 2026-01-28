@@ -27,7 +27,7 @@ export function NavMain({
 						<div className="relative">
 							{/* Purple vertical bar for active state - extends beyond top/bottom */}
 							{item.isActive && (
-								<div className="absolute left-0 top-0 bottom-0 w-1 bg-[var(--chart-1)] -top-1 -bottom-1 z-10" />
+								<div className="absolute -left-4 top-1/2 -translate-y-1/2 h-6 w-1 bg-[var(--chart-1)] z-10 rounded-r-md" />
 							)}
 							<SidebarMenuButton
 								tooltip={item.title}
@@ -35,7 +35,7 @@ export function NavMain({
 								className={cn(
 									"relative",
 									item.isActive &&
-										"bg-[var(--chart-1)]/10 rounded-r-md text-[var(--chart-1)] [&_svg]:text-[var(--chart-1)] [&_span]:text-[var(--chart-1)] [&_a_svg]:text-[var(--chart-1)]",
+										"bg-muted rounded-r-md text-primary [&_a_svg]:text-[var(--chart-1)]",
 									!item.isActive && "text-muted-foreground",
 								)}
 							>

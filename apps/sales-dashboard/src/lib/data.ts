@@ -137,6 +137,14 @@ export const topProducts: TopProduct[] = [
 // Recent Invoices
 export const recentInvoices: Invoice[] = [
 	{
+		customer: "James Brown",
+		invoiceId: "AC000577000",
+		date: "Aug 16, 2025",
+		amount: "$4,500.00",
+		priority: "Moderate",
+		status: "Cancelled",
+	},
+	{
 		customer: "John Doe",
 		invoiceId: "INV-001",
 		date: "Aug 15, 2025",
@@ -159,6 +167,30 @@ export const recentInvoices: Invoice[] = [
 		amount: "$2,100.00",
 		priority: "High",
 		status: "Paid",
+	},
+	{
+		customer: "Sarah Williams",
+		invoiceId: "INV-004",
+		date: "Aug 12, 2025",
+		amount: "$3,750.00",
+		priority: "Low",
+		status: "Pending",
+	},
+	{
+		customer: "Michael Chen",
+		invoiceId: "INV-005",
+		date: "Aug 11, 2025",
+		amount: "$950.00",
+		priority: "Medium",
+		status: "Paid",
+	},
+	{
+		customer: "Emily Davis",
+		invoiceId: "INV-006",
+		date: "Aug 10, 2025",
+		amount: "$1,800.00",
+		priority: "High",
+		status: "Cancelled",
 	},
 ];
 

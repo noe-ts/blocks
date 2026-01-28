@@ -11,10 +11,10 @@ import {
   BookOpen,
   ChevronRight,
   X,
-  CheckCircle2,
   AppWindow,
   Atom,
   ChevronsUpDown,
+  Verified,
 } from "lucide-react";
 import * as React from "react";
 
@@ -31,12 +31,12 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Button } from "../ui/button";
-import { Avatar, AvatarFallback } from "../ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 
 const data = {
   user: {
-    name: "Scarlett Felicity",
-    email: "felicityyy@mail.com",
+    name: "Anna Lee",
+    email: "anna.lee@dbsq.fr",
   },
   navMain: [
     {
@@ -107,7 +107,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" className="hover:bg-transparent">
               <div className="flex h-full w-full items-center gap-3">
-                <div className="flex aspect-square size-10 items-center justify-center rounded-full bg-[var(--chart-1)] text-white relative overflow-hidden">
+                <div className="flex aspect-square size-9 items-center justify-center rounded-full bg-[var(--chart-1)] text-white relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                   <Atom className="size-5 relative z-10" />
                 </div>
@@ -142,9 +142,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </div>
           <NavSecondary items={data.analytics} />
         </div>
+      </SidebarContent>
+      <SidebarFooter>
+        <NavSecondary items={data.footer} />
         {showPremium && (
           <div className="px-2 py-2 mt-auto">
-            <div className="relative bg-card rounded-lg p-4 shadow-sm border border-border">
+            <div className="relative bg-card rounded-lg p-3 shadow-sm border border-border">
               <Button
                 variant="ghost"
                 size="icon"
@@ -153,19 +156,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               >
                 <X className="size-3" />
               </Button>
-              <div className="flex items-start gap-3 pr-6">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-full bg-[var(--chart-1)] text-white relative overflow-hidden mt-0.5">
+              <div className="flex flex-col items-start gap-2 pr-6">
+                <div className="flex aspect-square size-7 items-center justify-center rounded-sm bg-[var(--chart-1)] text-white relative overflow-hidden mt-0.5">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
                   <AppWindow className="size-4 relative z-10" />
                 </div>
-                <div className="flex-1 space-y-1.5">
-                  <div className="text-sm font-medium">Premium subscription</div>
-                  <div className="text-xs text-muted-foreground leading-relaxed">
+                <div className="space-y-1">
+                  <div className="text-xs font-medium">Premium subscription</div>
+                  <div className="text-[11px] text-muted-foreground">
                     Upgrade and get instant access to premium benefits.
                   </div>
                   <Link
-                    to="#"
-                    className="inline-flex items-center gap-1 text-xs font-medium text-[var(--chart-1)] hover:underline"
+                    to="/"
+                    className="inline-flex items-center gap-1 text-sm font-medium underline"
                   >
                     Upgrade now
                     <ChevronRight className="size-3" />
@@ -175,22 +178,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </div>
           </div>
         )}
-        <div className="px-2 py-2">
-          <NavSecondary items={data.footer} />
-        </div>
-      </SidebarContent>
-      <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" className="hover:bg-transparent">
               <Link to="/" className="flex h-full w-full items-center gap-3">
                 <Avatar className="size-8">
-                  <AvatarFallback>SF</AvatarFallback>
+                  <AvatarImage alt={data.user.name} className="bg-amber-100" />
+                  <AvatarFallback className="font-medium">AL</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium flex items-center gap-1.5">
                     {data.user.name}
-                    <CheckCircle2 className="size-3.5 text-blue-500 fill-blue-500" />
+                    <Verified className="size-3.5 text-blue-500" />
                   </span>
                   <span className="truncate text-xs text-muted-foreground">
                     {data.user.email}

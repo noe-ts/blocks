@@ -9,6 +9,7 @@ import { DashboardHeader } from "@/components/dashboard-header";
 import { OverviewCards } from "@/components/overview-cards";
 import { RevenueChart } from "@/components/revenue-chart";
 import { SalesPipelineChart } from "@/components/sales-pipeline-chart";
+import { RecentInvoicesTable } from "@/components/recent-invoices-table";
 
 export const Route = createFileRoute("/")({
 	component: HomeComponent,
@@ -28,6 +29,7 @@ function HomeComponent() {
 								<RevenueChart />
 								<SalesPipelineChart />
 							</div>
+							<RecentInvoicesTable />
 						</div>
 					</div>
 				</div>
